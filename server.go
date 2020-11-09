@@ -23,7 +23,7 @@ func show(c *gin.Context) {
 	u := User{}
 	err := c.Bind(&u)
 	if err != nil {
-		c.String(http.StatusBadRequest, "Bad request")
+		c.JSON(http.StatusBadRequest, err)
 		return
 	}
 	c.JSON(http.StatusOK, u)
@@ -33,7 +33,7 @@ func display(c *gin.Context) {
 	u := User{}
 	err := c.Bind(&u)
 	if err != nil {
-		c.String(http.StatusBadRequest, "Bad request")
+		c.JSON(http.StatusBadRequest, err)
 		return
 	}
 	c.JSON(http.StatusOK, u)
